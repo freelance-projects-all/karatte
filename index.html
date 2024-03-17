@@ -99,7 +99,7 @@
 </li> -->
 
       </ul>
-      <a href="system.html" aria-label="Download this template" class="btn btn-outline-light d-sm-none d-lg-block">
+      <a href="system.html" aria-label="Download this template" class="btn btn-outline-light d-sm-none d-lg-block" id="registerBTNHeader">
         <small>Register</small>
       </a>
     </div>
@@ -604,6 +604,11 @@
 
 
 
+  <script>
+    if(window.innerWidth <= 770){
+      document.getElementById('registerBTNHeader').remove();
+    }
+  </script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/aos.js"></script>
   <script>
