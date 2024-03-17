@@ -4,7 +4,7 @@
   <head>
       <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <meta name="description" content="A well made and handcrafted Bootstrap 5 template">
+  <!-- <meta name="description" content="A well made and handcrafted Bootstrap 5 template"> -->
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
@@ -57,9 +57,9 @@
 
             </header>
             <main class="mb-auto col-12">
-              <h1>Register </h1>
               
-<form class="row" id="submit-form">
+  <form class="row" id="submit-form">
+  <h1>Register </h1>
   <div class="col-12">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -150,9 +150,22 @@
           
         </div>
 
+        
+
       </div></body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+    console.log(localStorage.getItem('registered'));
+    if(localStorage.getItem('registered')=='true'){
+      document.getElementById('submit-form').innerHTML = `
+      <div class="">
+          
+            <h1>Submitted</h1> 
+            <p>We received your registration information;<br/> we'll be in touch shortly!</p>
+          </div>
+        </div>
+      `;
+    }
     $("#submit-form").submit((e)=>{
         // document.querySelectorAll('.loader')
         const loader = document.createElement('span');
@@ -167,7 +180,7 @@
                    alert("Form submitted successfully");
                    loader.remove();
                    localStorage.setItem('registered', 'true');
-                  //  window.location.reload()
+                   window.location.reload()
                    //window.location.href="https://google.com"
                },
                error:function (err){
