@@ -18,6 +18,28 @@
 
   </head>
 
+  <style>
+    .loader {
+    width: 28px;
+    height: 28px;
+    border: 5px solid #FFF;
+    border-bottom-color: #FF3D00;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+    </style>
+
   <body class="d-flex h-100 w-100 bg-black text-white" data-bs-spy="scroll" data-bs-target="#navScroll">
 
     <div class="h-100 container-fluid">
@@ -27,33 +49,97 @@
           
             <header class="mb-auto py-vh-2 col-12">
               <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stack" viewBox="0 0 16 16">
-    <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"/>
-    <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"/>
-  </svg>
-  <span class="ms-md-1 mt-1 fw-bolder me-md-5">Klar</span>
+  
+  <span class="ms-md-1 mt-1 fw-bolder me-md-5">
+    <img src="uploaded/img/LOGO-1-without-bg.png" alt="" style="width: 300px;">
+  </span>
 </a>
 
             </header>
             <main class="mb-auto col-12">
-              <h1>Register a new account</h1>
+              <h1>Register </h1>
               
-<form class="row">
+<form class="row" id="submit-form">
   <div class="col-12">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control form-control-lg bg-gray-800 border-dark" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="name" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control form-control-lg bg-gray-800 border-dark" id="exampleInputPassword1">
+    <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+    <input type="tel" class="form-control form-control-lg bg-gray-800 border-dark" name="phoneNumber" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
-  <div class="mb-3 form-check py-3">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">If you really don´t want any newsletter <strong>check this box</strong>. Then you just agree to receive our marketing mails and product stuff. If you check this box <strong>we will not send out our newsletter</strong> to you at all...on mondays.</label>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email Address</label>
+    <input type="email" class="form-control form-control-lg bg-gray-800 border-dark" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
-  <button type="submit" class="btn btn-white btn-xl mb-4">Submit</button>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Address</label>
+    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="address" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Date of birth</label>
+    <input type="date" class="form-control form-control-lg bg-gray-800 border-dark" name="dob" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Date of Admission</label>
+    <input type="date" class="form-control form-control-lg bg-gray-800 border-dark" name="dateOfAdmission" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Current belt status</label>
+    <!-- <input type="email" class="form-control form-control-lg bg-gray-800 border-dark" name="belt" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+    <select name="belt" id="belt" class="form-control form-control-lg bg-gray-800 border-dark" >
+      <option disabled selected>
+        Select belt
+      </option>
+      <option value="white">
+        white
+      </option>
+      <option value="yellow">
+        yellow
+      </option>
+      <option value="orange">
+        orange
+      </option>
+      <option value="green">
+        green
+      </option>
+      <option value="blue">
+        blue
+      </option>
+      <option value="purple">
+        purple
+      </option>
+      <option value="red">
+        red
+      </option>
+      <option value="brown">
+        brown
+      </option>
+      <option value="black">
+        black
+      </option>
+      <!-- white, yellow, orange, green, blue, purple, red, brown, black -->
+    </select>
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Dojo Name</label>
+    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="dojoName" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">District Dojo</label>
+    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="dojoDisctrict" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+  </div>
+  <button type="submit" class="btn btn-white btn-xl mb-4" id="submitButton" style="display: flex; align-items: center; gap: 2;">Submit</button>
 </div>
 </form>
 
@@ -65,5 +151,31 @@
         </div>
 
       </div></body>
-  <script src="../no-extLnk.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $("#submit-form").submit((e)=>{
+        // document.querySelectorAll('.loader')
+        const loader = document.createElement('span');
+        loader.classList.add('loader');
+        document.getElementById('submitButton').appendChild(loader);
+           e.preventDefault()
+           $.ajax({
+               url:"https://script.google.com/macros/s/AKfycbyyYeE9pQ5CAX43_ZAASUkiG3_Ne8vVB1gaW1ccOkDbvyX-IcL-4ssflDZCVZHOA3W6Fg/exec",
+               data:$("#submit-form").serialize(),
+               method:"post",
+               success:function (response){
+                   alert("Form submitted successfully");
+                   loader.remove();
+                   localStorage.setItem('')
+                  //  window.location.reload()
+                   //window.location.href="https://google.com"
+               },
+               error:function (err){
+                   alert("Something Error");
+                   loader.remove();
+   
+               }
+           })
+       })
+  </script>
     </html>
