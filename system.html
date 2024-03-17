@@ -63,40 +63,43 @@
   <div class="col-12">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="name" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark text-secondary" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-    <input type="tel" class="form-control form-control-lg bg-gray-800 border-dark" name="phoneNumber" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="tel" class="form-control form-control-lg bg-gray-800 border-dark  text-secondary" name="phoneNumber" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email Address</label>
-    <input type="email" class="form-control form-control-lg bg-gray-800 border-dark" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" class="form-control form-control-lg bg-gray-800 border-dark  text-secondary" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Address</label>
-    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="address" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <textarea name="" id="" cols="30" rows="5" class="form-control form-control-lg bg-gray-800 border-dark  text-secondary" name="address" required></textarea>
     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Date of birth</label>
-    <input type="date" class="form-control form-control-lg bg-gray-800 border-dark" name="dob" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="date" class="form-control form-control-lg bg-gray-800 border-dark  text-secondary" name="dob" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Date of Admission</label>
-    <input type="date" class="form-control form-control-lg bg-gray-800 border-dark" name="dateOfAdmission" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="date" class="form-control form-control-lg bg-gray-800 border-dark  text-secondary" name="dateOfAdmission" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Current belt status</label>
-    <!-- <input type="email" class="form-control form-control-lg bg-gray-800 border-dark" name="belt" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
-    <select name="belt" id="belt" class="form-control form-control-lg bg-gray-800 border-dark" >
+    <!-- <input type="email" class="form-control form-control-lg bg-gray-800 border-dark  text-secondary" name="belt" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+    <select name="belt" id="belt" class="form-control form-control-lg bg-gray-800 border-dark  text-secondary" required>
       <option disabled selected>
         Select belt
+      </option>
+      <option value="noBelt">
+        No Belt
       </option>
       <option value="white">
         white
@@ -131,12 +134,12 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Dojo Name</label>
-    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="dojoName" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="dojoName" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">District Dojo</label>
-    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="dojoDisctrict" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" name="dojoDisctrict" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
   </div>
   <button type="submit" class="btn btn-white btn-xl mb-4" id="submitButton" style="display: flex; align-items: center; gap: 2;">Submit</button>
@@ -155,7 +158,6 @@
       </div></body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-    console.log(localStorage.getItem('registered'));
     if(localStorage.getItem('registered')=='true'){
       document.getElementById('submit-form').innerHTML = `
       <div class="">
@@ -190,5 +192,47 @@
                }
            })
        })
+
+     function getFormData() {
+      var form = document.getElementById('submit-form');
+      var formData = {};
+      for (var i = 0; i < form.elements.length; i++) {
+        var element = form.elements[i];
+        if (element.tagName.toLowerCase() !== 'button' && element.type !== 'button' && element.type !== 'submit') {
+          formData[element.name] = element.value;
+        }
+      }
+      console.log(formData);
+      return formData;
+      // You can use formData object as per your requirement, like sending it to server or processing it further.
+    }
+
+
+    function validateAndSubmit() {
+      var form = document.getElementById('submit-form');
+      var formData = {};
+      var isValid = true;
+      
+      // Validation
+      for (var i = 0; i < form.elements.length; i++) {
+        var element = form.elements[i];
+        if (element.tagName.toLowerCase() !== 'button' && element.type !== 'button' && element.type !== 'submit') {
+          if (!element.checkValidity()) {
+            isValid = false;
+            break;
+          }
+          formData[element.name] = element.value;
+        }
+      }
+      
+      if (isValid) {
+        // Submit the form or perform further actions
+        console.log(formData);
+        // You can use formData object as per your requirement, like sending it to server or processing it further.
+      } else {
+        // Display error popup
+        alert("Please fill out all fields correctly.");
+      }
+    }
   </script>
     </html>
